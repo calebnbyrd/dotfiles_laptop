@@ -53,6 +53,7 @@ button:hover {
 
 #clock,
 #cpu,
+#battery,
 #memory,
 #disk,
 #temperature,
@@ -71,6 +72,10 @@ button:hover {
 #idle_inhibitor {
   /* to center the eye */
   padding-right: 18px;
+}
+
+#battery.critical:not(.charging) {
+  background-color: rgba(255, 50, 22, 0.6);
 }
 
 #network.disconnected {

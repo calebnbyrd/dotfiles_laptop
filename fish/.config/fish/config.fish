@@ -12,7 +12,7 @@ abbr -a n nvim
 abbr -a p python
 abbr -a c claude
 abbr -a es "cd ~/esim; source .venv/bin/activate.fish"
-abbr -a re "python src/main.py &; sleep 0.5; hyprctl dispatch setfloating; hyprctl dispatch resizeactive exact 1920 1080; hyprctl dispatch centerwindow"
+abbr -a re "python src/main.py &; sleep 0.8; hyprctl dispatch fullscreen"
 
 # Initialize starship
 starship init fish | source

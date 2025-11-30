@@ -2,31 +2,9 @@
     "height": 28, // Waybar height (to be removed for auto height)
     "modules-left": ["temperature", "cpu", "memory",],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["clock", "pulseaudio", "network", "idle_inhibitor"],
+    "modules-right": ["clock", "battery", "pulseaudio", "network", "idle_inhibitor"],
 
     // Modules configuration
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip": false
-    },
-
-    "clock": {
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-
-    "cpu": {
-        "format": " {usage}%",
-    },
-
-    "memory": {
-        "format": " {}%"
-    },
-
     "temperature": {
         "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
@@ -36,16 +14,35 @@
         "format-icons": ["", "", ""],
         "tooltip": false
     },
-
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%)  ",
-        "format-ethernet": " {ifname}",
-        "tooltip-format": " {ifname} via {gwaddr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "Disconnected ⚠ {ifname}",
-        "format-alt": " {ifname}: {ipaddr}/{cidr}"
+ 
+    "cpu": {
+        "format": " {usage}%"
     },
 
+    "memory": {
+        "format": " {}%"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+
+		"battery": {
+				"format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": " {icon} {capacity}%",
+        "interval": 60,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip-format": "{time}",
+				"format-time": "{H}h {M}m",
+        "on-click": "2"
+		},
+		
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
@@ -60,4 +57,22 @@
         "on-click": "pavucontrol",
         // "on-click-right": "foot -a pw-top pw-top"
     },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": " {ifname}",
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠ {ifname}",
+        "format-alt": " {ifname}: {ipaddr}/{cidr}"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    }
 }
