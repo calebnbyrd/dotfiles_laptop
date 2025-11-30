@@ -1,0 +1,7 @@
+font-family = "JetBrainsMono Nerd Font"
+theme = TokyoNight
+background-opacity = 0.8
+keybind = shift+enter=text:\x1b\r
+
+# Cursor shaders
+custom-shader = shaders/cursor_warp.glsl
